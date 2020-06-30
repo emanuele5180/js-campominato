@@ -16,9 +16,12 @@
 //il computer deve generare 16 numeri casuali tra 1 e 100 quindi deve ciclare per 16 volte pescando un numero a caso e pushandolo in un array
 
 
-var numeriGenerati = numero;
+var numeriGeneratiDaPc = [];
 
 for (var i = 0; i < 16; i++) {
   var numero = parseInt(Math.floor ( Math.random()*100)+1);
   console.log(numero);
+  numeriGeneratiDaPc.push(numero);
+
 }
+console.log(numeriGeneratiDaPc);

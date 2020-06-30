@@ -21,7 +21,20 @@ var numeriGeneratiDaPc = [];
 for (var i = 0; i < 16; i++) {
   var numero = parseInt(Math.floor ( Math.random()*100)+1);
   console.log(numero);
-  numeriGeneratiDaPc.push(numero);
 
+
+  //se si genera un numero già uscito e presente nell'array, genera un altro numero fino a quando  non è un numero unico
+
+  if (numero === numeriGeneratiDaPc[i]){
+
+    for (var i = 0; i < numeriGeneratiDaPc.length; i++) {
+      numero = parseInt(Math.floor ( Math.random()*100)+1);
+
+    }
+
+
+  }
+
+  numeriGeneratiDaPc.push(numero);
 }
 console.log(numeriGeneratiDaPc);

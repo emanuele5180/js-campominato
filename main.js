@@ -16,25 +16,79 @@
 //il computer deve generare 16 numeri casuali tra 1 e 100 quindi deve ciclare per 16 volte pescando un numero a caso e pushandolo in un array
 
 
-var numeriGeneratiDaPc = [];
+var numeriGeneratiDaPc = inserisciNumero();
+//console.log(numeroCasuale(1,100));
+console.log(numeriGeneratiDaPc);
 
-for (var i = 0; i < 16; i++) {
-  var numero = parseInt(Math.floor ( Math.random()*100)+1);
-  console.log(numero);
+
+
+// for (var i = 0; i < 16; i++) {
+//   var numero = parseInt(Math.floor ( Math.random()*100)+1);
+//   console.log(numero);
 
 
   //se si genera un numero già uscito e presente nell'array, genera un altro numero fino a quando  non è un numero unico
 
-  if (numero === numeriGeneratiDaPc[i]){
+  // if (numero === numeriGeneratiDaPc[i]){
+  //   var j = 0;
+  //
+  //   while (j == i) {
+  //
+  //     j++
+  //
+  //    numero = parseInt(Math.floor ( Math.random()*100)+1);
+  //    numeriGeneratiDaPc.push(numero);
+  //
+  //
+  //   }
+  //
+  //
+  //
+  // }
+  // numeriGeneratiDaPc.push(numero);
+  // se numero == numeriGeneratiDaPc[]
+  // genera un altro numero Math.random
+  // se numero != numeriGeneratiDaPc[] push in numeriGeneratiDaPc
+  // altrimenti genera di nuovo
 
-    for (var i = 0; i < numeriGeneratiDaPc.length; i++) {
-      numero = parseInt(Math.floor ( Math.random()*100)+1);
+//}
+// console.log(numeriGeneratiDaPc);
+
+//FUNZIONI
+
+
+function numeroCasuale (min,max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+
+}
+
+function inserisciNumero () {
+  var i= 0;
+  var sediciNumeri = [];
+  while(i < 16){
+    var numero = numeroCasuale(1,100);
+    if (!isInArray(numero,sediciNumeri )) {
+      sediciNumeri.push(numero);
+      i++;
+
 
     }
 
 
   }
-
-  numeriGeneratiDaPc.push(numero);
+  return sediciNumeri;
 }
-console.log(numeriGeneratiDaPc);
+
+function isInArray (val, array) {
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] == val) {
+      return true;
+
+    }
+
+
+  }
+  return false;
+}

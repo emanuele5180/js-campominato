@@ -90,25 +90,26 @@ function isInArray (val, array) {
   return false;
 }
 
-
-function inserisciNumeroUtente () {
-  var i=0;
-  var cambio = 5;
+//uesta funzione mi serve per dare all'utente modo di inserire i suoi numeri
+function inserisciNumeroUtente () { // inizio della funzione attribuendogli un nome
+  var i=0; //variabile per il while
+  var cambio = 5; // variabile con la quale stabilisco il numero massimo di inserimenti da parte dell'utente
   var numeri = [];
   var trovato = false;
+  //faccio un ciclo while all'interno della funzione per far scegliere all'utente i suoi numeri, uso while perchè non so quante volte l'utente dovrà inserire i suoi numeri, parto con la condizione che i sia minore di cambio, successivamente aggiungo un'ulteriore condizione che mi permette di continuare a ciclare. Entrambe le condizioni devono essere vere avendo messo && tra una e l'altra.
   while ( i < cambio && trovato == false ) {
-    var numeroUser = parseInt(prompt("inserisci un numero da uno a 100"));
-    var presente = isInArray(numeroUser,numeri);
-    var presenteBombe = isInArray(numeroUser,numeriGeneratiDaPc);
+    var numeroUser = parseInt(prompt("inserisci un numero da uno a 100")); // creo un prompt per permettere all'utente di inserire i numeri
+    var presente = isInArray(numeroUser,numeri); // con questa variabile, richiamando la funzione isInArray sto verificando che non ci sia un numero che si ripete nell'array numeri[] (array in cui vanno ad aggiungersi uno alla volta i numeri scelti dall'utente).
+    var presenteBombe = isInArray(numeroUser,numeriGeneratiDaPc); // con questa variabile richiamando ancora la funzione isInArray ma con argomenti diversi verifico che i numeri generati dal pc siano diversi da quelli scelti dall'utente e di seguito con l'if (presenteBombe) definisco il comportamento qualora il numero dell'utente coincida con uno dei numeri generati dal pc.
     if (presenteBombe) {
       console.log("hai perso");
       //i = cambio;
       trovato = true;
     }
 
-    if (presente == false) {
+    if (presente == false) {  //questo if mi permette di pushare nell'array dei numeri scelti dall'utente qualora siano soddisfatte le condizioni sopra
       numeri.push(numeroUser);
-      i++;
+      i++; // incremento per ognni ciclo.
     }
 
 
@@ -118,4 +119,4 @@ function inserisciNumeroUtente () {
 
 }
 
-inserisciNumeroUtente();
+inserisciNumeroUtente(); // questo è per invocare la funzione

@@ -19,9 +19,6 @@
 var numeriGeneratiDaPc = inserisciNumero();
 //console.log(numeroCasuale(1,100));
 console.log(numeriGeneratiDaPc);
-
-
-
 // for (var i = 0; i < 16; i++) {
 //   var numero = parseInt(Math.floor ( Math.random()*100)+1);
 //   console.log(numero);
@@ -92,3 +89,33 @@ function isInArray (val, array) {
   }
   return false;
 }
+
+
+function inserisciNumeroUtente () {
+  var i=0;
+  var cambio = 5;
+  var numeri = [];
+  var trovato = false;
+  while ( i < cambio && trovato == false ) {
+    var numeroUser = parseInt(prompt("inserisci un numero da uno a 100"));
+    var presente = isInArray(numeroUser,numeri);
+    var presenteBombe = isInArray(numeroUser,numeriGeneratiDaPc);
+    if (presenteBombe) {
+      console.log("hai perso");
+      //i = cambio;
+      trovato = true;
+    }
+
+    if (presente == false) {
+      numeri.push(numeroUser);
+      i++;
+    }
+
+
+
+  }
+  console.log(numeri);
+
+}
+
+inserisciNumeroUtente();
